@@ -17,7 +17,7 @@ end
 #
 spec = Gem::Specification.new do |s|
   s.name              = "bundler-bouncer"
-  s.version           = "0.1.0"
+  s.version           = File.read 'Version.txt'
   s.summary           = "Exits app if you forgot to run under bundle exec"
   s.author            = "Joshua Cheek"
   s.email             = "josh.cheek@gmail.com"
