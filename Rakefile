@@ -26,6 +26,7 @@ spec = Gem::Specification.new do |s|
   s.files             = %w(MIT-LICENSE.txt Rakefile Readme.md) + Dir.glob("{spec,lib}/**/*")
   s.require_paths     = ["lib"]
   s.add_development_dependency "rspec", "~> 2.6.0"
+  s.add_development_dependency "bundler", "~> 1.0.15"
 end
 
 # This task actually builds the gem. We also regenerate a static
