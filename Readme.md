@@ -4,15 +4,23 @@ bundler-bouncer
 Description
 -----------
 
-Should your app run in the Bundler sandbox? Well then make sure it is, let bundler-bouncer kick you out of your app if you forgot to `bundle exec` it. Prevents absurdly difficult to find bugs, prevents you from propagating your system with bad data, eases the mind.
+Should your app run in the Bundler sandbox? Well then make sure it is, let bundler-bouncer
+kick you out of your app if you forgot to `bundle exec` it. Prevents absurdly difficult to
+find bugs, prevents you from propagating your system with bad data, eases the mind.
 
-In the [Pragmatic Programmer](http://pragprog.com/the-pragmatic-programmer/extracts/tips), Dave Thomas and Andy Hunt say to Crash Early, because "The alternative may be to continue, writing corrupted data to some vital database" which, I did (well, it wasn't vital), because I wasn't using Bundler on one rake task. Then, later, when I tried to pull the data back out with Bundler running, it was invalid, sending me on a 2 day goose chase trying to figure out what was wrong. Don't let yourself get in my situation, protect your app with a bouncer.
+In the [Pragmatic Programmer](http://pragprog.com/the-pragmatic-programmer/extracts/tips),
+Dave Thomas and Andy Hunt say to Crash Early, because "The alternative may be to continue,
+writing corrupted data to some vital database" which, I did (well, it wasn't vital), because
+I wasn't using Bundler on one rake task. Then, later, when I tried to pull the data back
+out with Bundler running, it was invalid, sending me on a 2 day goose chase trying to figure
+out what was wrong. Don't let yourself get in my situation, protect your app with a bouncer.
 
 
 Features
 --------
 
-If you set the environment variable USE_BUNDLER to 'no', it will warn you that it isn't using Bundler, but won't kick you out. This enables you to use tools like [rubygems-bundler](https://rubygems.org/gems/rubygems-bundler).
+If you set the environment variable USE_BUNDLER to 'no', it will warn you that it isn't using
+Bundler, but won't kick you out. This enables you to use tools like [rubygems-bundler](https://rubygems.org/gems/rubygems-bundler).
 
 
 Usage
