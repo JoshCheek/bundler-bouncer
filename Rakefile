@@ -18,7 +18,8 @@ end
 spec = Gem::Specification.new do |s|
   s.name              = "bundler-bouncer"
   s.version           = File.read 'Version.txt'
-  s.summary           = "Exits app if you forgot to run under bundle exec"
+  s.summary           = "Exits app if you forgot to run under bundle exec."
+  s.description       = "Should your app run in the Bundler sandbox? Well then make sure it is, let bundler-bouncer kick you out of your app if you forgot to `bundle exec` it. Prevents absurdly difficult to find bugs, prevents you from propagating your system with bad data, eases the mind."
   s.author            = "Joshua Cheek"
   s.email             = "josh.cheek@gmail.com"
   s.homepage          = "https://github.com/JoshCheek/bundler-bouncer"
