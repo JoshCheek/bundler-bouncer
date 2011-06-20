@@ -4,7 +4,9 @@ bundler-bouncer
 Description
 -----------
 
-Should your app run in the Bundler sandbox? Well then make sure it is, let bundler-bouncer kick you out of your app if you forgot to `bundle exec` it. Prevents absurdly difficult to find bugs, prevents you from propagating your system with bad data, eases the mind. In the [Pragmatic Programmer](http://pragprog.com/the-pragmatic-programmer/extracts/tips), Dave Thomas and Andy Hunt say to Crash Early, because "The alternative may be to continue, writing corrupted data to some vital database" which, I did, because I wasn't using Bundler on one rake task. Then, later, when I tried to deserialize that data with Bundler running, it was invalid, sending me on a 2 day goose chase trying to figure out what was wrong. Don't let yourself get in my situation, get your app a bouncer.
+Should your app run in the Bundler sandbox? Well then make sure it is, let bundler-bouncer kick you out of your app if you forgot to `bundle exec` it. Prevents absurdly difficult to find bugs, prevents you from propagating your system with bad data, eases the mind.
+
+In the [Pragmatic Programmer](http://pragprog.com/the-pragmatic-programmer/extracts/tips), Dave Thomas and Andy Hunt say to Crash Early, because "The alternative may be to continue, writing corrupted data to some vital database" which, I did (well, it wasn't vital), because I wasn't using Bundler on one rake task. Then, later, when I tried to pull the data back out with Bundler running, it was invalid, sending me on a 2 day goose chase trying to figure out what was wrong. Don't let yourself get in my situation, protect your app with a bouncer.
 
 
 Features
