@@ -14,6 +14,7 @@ describe 'bundler-bouncer' do
       its(:exitstatus)  { should == 0 }
       its(:stdout)      { should == '' }
       its(:stderr)      { should == bouncer_message(:turned_off) }
+      its(:stderr)      { should be_coloured :yellow }
     end
     
     context 'with USE_BUNDLER set to force' do
@@ -21,6 +22,7 @@ describe 'bundler-bouncer' do
       its(:exitstatus)  { should == 1 }
       its(:stdout)      { should == '' }
       its(:stderr)      { should == bouncer_message(:missing_bundler) }
+      its(:stderr)      { should be_coloured :red }
     end
   end
   

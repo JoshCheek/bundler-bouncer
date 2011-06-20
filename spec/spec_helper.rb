@@ -1,3 +1,29 @@
+RSpec::Matchers.define :be_coloured do |colour|
+
+  string = nil  
+  colours = {
+    :red    => "\e[31m",
+    :yellow => "\e[33m",
+    :none   => "\e[0m",
+  }
+  
+  match do |_string|
+    string = _string
+    string.end_with?(colours[:none]) && string.start_with?(colours[colour])
+  end  
+  
+  failure_message_for_should do
+    "expected #{string.inspect} to be red (begin with #{colours[colour].inspect}, end with #{colours[:none].inspect})"
+  end
+    
+  description do
+    "be #{colour}"
+  end
+
+end
+
+
+
 def rootdir
   File.expand_path(File.join(File.dirname(__FILE__), '..'))
 end
