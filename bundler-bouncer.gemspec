@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = [%q{Joshua Cheek}]
   s.date = %q{2011-06-20}
   s.email = %q{josh.cheek@gmail.com}
-  s.files = [%q{MIT-LICENSE.txt}, %q{Rakefile}, %q{Readme.md}, %q{spec/bundler-bouncer_spec.rb}, %q{spec/mock_projects/dummy_gem-1.0.0.gem}, %q{spec/mock_projects/with_bundler/app.rb}, %q{spec/mock_projects/with_bundler/Gemfile}, %q{spec/mock_projects/with_bundler/Gemfile.lock}, %q{spec/spec_helper.rb}, %q{lib/bundler/bouncer.rb}]
+  s.files = [%q{MIT-LICENSE.txt}, %q{Rakefile}, %q{Readme.md}, %q{spec/bundler-bouncer_spec.rb}, %q{spec/mock_projects}, %q{spec/mock_projects/dummy_gem-1.0.0.gem}, %q{spec/mock_projects/with_bundler}, %q{spec/mock_projects/with_bundler/app.rb}, %q{spec/mock_projects/with_bundler/Gemfile}, %q{spec/mock_projects/with_bundler/Gemfile.lock}, %q{spec/mock_projects/without_bundler}, %q{spec/mock_projects/without_bundler/app.rb}, %q{spec/spec_helper.rb}, %q{lib/bundler}, %q{lib/bundler/bouncer}, %q{lib/bundler/bouncer/messages.rb}, %q{lib/bundler/bouncer.rb}]
   s.homepage = %q{https://github.com/JoshCheek/bundler-bouncer}
   s.require_paths = [%q{lib}]
   s.rubygems_version = %q{1.8.5}
