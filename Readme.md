@@ -43,7 +43,7 @@ When you run `bundle exec ruby main.rb`, your app will print `hello world`, just
 
 But when you forget, and run `ruby main.rb` You will get bounced out:
 
-    Try running this app again with `bundle exec`
+    No dice, pal. Try again when you can remember to `bundle exec`.
 
 
 Recommendation
