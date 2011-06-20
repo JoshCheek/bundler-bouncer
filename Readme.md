@@ -45,4 +45,4 @@ Stick it at the top of your Rakefile.
 Install
 -------
 
-`gem install bundler-bouncer`
+`$ gem install bundler-bouncer`
