@@ -1,3 +1,26 @@
+def rootdir
+  File.expand_path(File.join(File.dirname(__FILE__), '..'))
+end
+
+
+def use_bundler_env(val='force', &block)
+  crnt_val = ENV['USE_BUNDLER']
+  ENV['USE_BUNDLER'] = val
+  block.call
+ensure
+  ENV['USE_BUNDLER'] = crnt_val
+end
+
+
+def app_command(options)
+  command = ''
+  command << 'bundle exec '         if options[:bundler]
+  command << 'ruby '
+  command << "-I #{rootdir}/lib "   unless options[:bundler] 
+  command << 'app.rb'
+end
+
+
 class InvokedApp < Struct.new(:exitstatus, :stdout, :stderr)
   require 'open3'
   def self.invoke(command)
@@ -7,15 +30,14 @@ class InvokedApp < Struct.new(:exitstatus, :stdout, :stderr)
   end
 end
 
+
 def run_app(dir, options)
   Dir.chdir "#{File.dirname __FILE__}/mock_projects/#{dir}" do
-    command = ''
-    command << 'bundle exec ' if options[:bundler]
-    command << "ruby app.rb"
-    InvokedApp.invoke command
+    use_bundler_env options[:USE_BUNDLER] do
+      InvokedApp.invoke app_command(options)
+    end
   end
 end
-
 
 
 def initialize_mock_projects
@@ -29,7 +51,6 @@ def initialize_mock_projects
   raise "Could not build package: #{results}" unless $?.exitstatus.zero?
   
   # make the Gemfile
-  rootdir = File.expand_path(File.join(File.dirname(__FILE__), '..'))
   File.open "#{rootdir}/spec/mock_projects/with_bundler/Gemfile", 'w' do |file|
     file.puts %Q[gem "bundler-bouncer", :path => "#{rootdir}"]
   end

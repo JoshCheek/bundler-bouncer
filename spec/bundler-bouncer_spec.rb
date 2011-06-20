@@ -15,7 +15,8 @@ describe 'bundler-bouncer' do
     end
     
     context 'with USE_BUNDLER not set to no' do
-      it 'should exit with status 1'
+      subject { run_app 'without_bundler', :bundler => false, :USE_BUNDLER => 'force' }
+      its(:exitstatus) { should == 1 }
       it 'should print an explanation to stderr'
     end
   end
