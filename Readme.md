@@ -28,7 +28,7 @@ And a main.rb that looks like this:
     require "bundler/bouncer"
     puts "hello world"
 
-When you run `bundle exec ruby main.rb`, your app will print `hi`, just like you'd expect.
+When you run `bundle exec ruby main.rb`, your app will print `hello world`, just like you'd expect.
 
 
 But when you forget, and run `ruby main.rb` You will get bounced out:
