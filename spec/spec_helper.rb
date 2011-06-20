@@ -47,8 +47,8 @@ def initialize_mock_projects
   require 'fileutils'
   
   # build the gem
-  results = `rake package`
-  raise "Could not build package: #{results}" unless $?.exitstatus.zero?
+  results = `rake gemspec`
+  raise "Could not build gemspec: #{results}" unless $?.exitstatus.zero?
   
   # make the Gemfile
   File.open "#{rootdir}/spec/mock_projects/with_bundler/Gemfile", 'w' do |file|
