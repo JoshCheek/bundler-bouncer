@@ -18,7 +18,7 @@ describe 'bundler-bouncer' do
       subject { run_app 'without_bundler', :bundler => false, :USE_BUNDLER => 'force' }
       its(:exitstatus)  { should == 1 }
       its(:stdout)      { should == '' }
-      its(:stderr)      { should == bouncer_message(:missing) }
+      its(:stderr)      { should == bouncer_message(:missing_bundler) }
     end
   end
   
