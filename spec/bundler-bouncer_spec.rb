@@ -4,8 +4,8 @@ describe 'bundler-bouncer' do
   context 'from a file invoked with `bundle exec`' do
     subject { run_app 'with_bundler', :bundler => true }
     its(:exitstatus) { should be_zero }
-    its(:stderr)     { should be_empty }
-    its(:stdout)     { should be_empty }
+    its(:stderr)     { should == '' }
+    its(:stdout)     { should == '' }
   end
   
   context 'from a file invoked without `bundle exec`' do
@@ -16,7 +16,8 @@ describe 'bundler-bouncer' do
     
     context 'with USE_BUNDLER not set to no' do
       subject { run_app 'without_bundler', :bundler => false, :USE_BUNDLER => 'force' }
-      its(:exitstatus) { should == 1 }
+      its(:exitstatus)  { should == 1 }
+      its(:stdout)      { should == '' }
       it 'should print an explanation to stderr'
     end
   end
