@@ -3,6 +3,12 @@ def rootdir
 end
 
 
+def bouncer_message(message)
+  require "#{rootdir}/lib/bundler/bouncer/messages"
+  Bundler::Bouncer::Messages[:message]
+end
+
+
 def use_bundler_env(val='force', &block)
   crnt_val = ENV['USE_BUNDLER']
   ENV['USE_BUNDLER'] = val
@@ -25,7 +31,7 @@ class InvokedApp < Struct.new(:exitstatus, :stdout, :stderr)
   require 'open3'
   def self.invoke(command)
     Open3.popen3 command do |stdin, stdout, stderr, wait_thr|
-      self.new(wait_thr.value.exitstatus, stdout.read, stderr.read)
+      self.new(wait_thr.value.exitstatus, stdout.read.strip, stderr.read.strip)
     end
   end
 end

@@ -14,11 +14,11 @@ describe 'bundler-bouncer' do
       it 'should print a warning to stderr'
     end
     
-    context 'with USE_BUNDLER not set to no' do
+    context 'with USE_BUNDLER set to force' do
       subject { run_app 'without_bundler', :bundler => false, :USE_BUNDLER => 'force' }
       its(:exitstatus)  { should == 1 }
       its(:stdout)      { should == '' }
-      it 'should print an explanation to stderr'
+      its(:stderr)      { should == bouncer_message(:missing) }
     end
   end
   
