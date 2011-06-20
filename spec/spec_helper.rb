@@ -47,7 +47,7 @@ end
 
 
 def initialize_mock_projects
-  return if @mock_projects_initialized # !> instance variable @mock_projects_initialized not initialized
+  return if @mock_projects_initialized
   @mock_projects_initialized = true
   
   require 'fileutils'
