@@ -1,8 +1,8 @@
 module Bundler
   module Bouncer
     Messages = {
-      :missing_bundler  => "Try running this app again with `bundle exec`",
-      :turned_off       => "Warning: Bundler is not running.",
+      :missing_bundler  => "\e[31mTry running this app again with `bundle exec`\e[0m",
+      :turned_off       => "\e[33mWarning: Bundler is not running.\e[0m",
     }
   end
 end
