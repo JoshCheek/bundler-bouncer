@@ -4,8 +4,8 @@ end
 
 
 def bouncer_message(message)
-  require "#{rootdir}/lib/bundler/bouncer/messages"
-  Bundler::Bouncer::Messages[:message]
+  require "bundler/bouncer/messages"
+  Bundler::Bouncer::Messages[message]
 end
 
 

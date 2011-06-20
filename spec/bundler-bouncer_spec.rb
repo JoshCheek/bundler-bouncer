@@ -10,8 +10,10 @@ describe 'bundler-bouncer' do
   
   context 'from a file invoked without `bundle exec`' do
     context 'with USE_BUNDLER set to no' do
-      it 'should exit with status 0'
-      it 'should print a warning to stderr'
+      subject { run_app 'without_bundler', :bundler => false, :USE_BUNDLER => 'no' }
+      its(:exitstatus)  { should == 0 }
+      its(:stdout)      { should == '' }
+      its(:stderr)      { should == bouncer_message(:turned_off) }
     end
     
     context 'with USE_BUNDLER set to force' do
