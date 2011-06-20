@@ -3,7 +3,7 @@ describe 'bundler-bouncer' do
   
   context 'from a file invoked with `bundle exec`' do
     subject { run_app :bundler => true }
-    its(:exitstatus) { should be_zero }
+    its(:exitstatus) { should == 0 }
     its(:stderr)     { should == '' }
     its(:stdout)     { should == '' }
   end
