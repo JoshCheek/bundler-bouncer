@@ -63,8 +63,8 @@ class InvokedApp < Struct.new(:exitstatus, :stdout, :stderr)
 end
 
 
-def run_app(dir, options)
-  Dir.chdir "#{File.dirname __FILE__}/mock_projects/#{dir}" do
+def run_app(options)
+  Dir.chdir "#{File.dirname __FILE__}/mock_projects/with#{options[:bundler] ? '' : 'out'}_bundler" do
     use_bundler_env options[:USE_BUNDLER] do
       InvokedApp.invoke app_command(options)
     end
